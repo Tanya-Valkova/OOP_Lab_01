@@ -1,10 +1,16 @@
 #include "Cone.h"
+#include <iostream>
+
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+using namespace std;
 
 Cone::Cone()
 {
 	cout << "*Constructor*" << endl;
-	R = 0;
-	H = 0;
+	radius = 0;
+	height = 0;
 }
 
 Cone::~Cone()
@@ -12,44 +18,44 @@ Cone::~Cone()
 	cout << "\n*Destructor*" << endl;
 }
 
-int Cone::GetR()
+int Cone::GetRadius()
 {
-	return this->R;
+	return this->radius;
 }
 
-int Cone::SetR(int R)
+int Cone::SetRadius(int R)
 {
 	if (R <= 0)
 	{
 		throw "Incorrect value of the radius";
 	}
-	this->R = R;
+	this->radius = R;
 }
 
-int Cone::GetH()
+int Cone::GetHeight()
 {
-	return this->H;
+	return this->height;
 }
 
-int Cone::SetH(int H)
+int Cone::SetHeight(int Height)
 {
-	if (H <= 0)
+	if (Height <= 0)
 	{
 		throw "Incorrect value of the height";
 	}
-	this->H = H;
+	this->height = Height;
 }
 
 double Cone::Volume()
 {
-	double V;
-	V = (1.0 / 3.0) * (M_PI * R * R * H);
-	return V;
+	double volume;
+	volume = (1.0 / 3.0) * (M_PI * radius * radius * height);
+	return volume;
 }
 
 double Cone::Square()
 {
-	double S;
-	S = M_PI * R * sqrt(R * R + H * H) + M_PI * R * R;
-	return S;
+	double square;
+	square = M_PI * radius * sqrt(radius * radius + height * height) + M_PI * radius * radius;
+	return square;
 }

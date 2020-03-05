@@ -1,4 +1,7 @@
 ﻿#include "Cone.h"
+#include <iostream>
+
+using namespace std;
 
 void Print(Cone& buff);
 
@@ -6,24 +9,24 @@ int main()
 {
 	try 
 	{
-		int r, h;
+		int radius, height;
 		Cone a;
 
 		cout << "\nThe radius of the base of the cone: ";
-		cin >> r;
-		if (r <= 0)
+		cin >> radius;
+		if (radius <= 0)
 		{
 			throw "Incorrect value of the radius";
 		}
-		a.SetR(r);
+		a.SetRadius(radius);
 
 		cout << "\nThe height of the cone: ";
-		cin >> h;
-		if (h <= 0)
+		cin >> height;
+		if (height <= 0)
 		{
 			throw "Incorrect value of the height";
 		}
-		a.SetH(h);
+		a.SetHeight(height);
 
 	Print(a);
 	}
@@ -34,12 +37,11 @@ int main()
 	return 0;
 }
 
-
 	void Print(Cone& buff)
 	{
 		cout << "\n\n********* Results *********" << endl;
-		cout << "\nThe radius of the base = " << buff.GetR() << " cm" << endl;
-		cout << "\nThe height of the cone = " << buff.GetH() << " cm" << endl;
+		cout << "\nThe radius of the base = " << buff.GetRadius() << " cm" << endl;
+		cout << "\nThe height of the cone = " << buff.GetHeight() << " cm" << endl;
 		cout << "\nThe volume of the cone = " << buff.Volume() << " cm^3" << endl;
 		cout << "\nSurface area of the cone =  " << buff.Square() << " cm^2" << endl;
 	}
