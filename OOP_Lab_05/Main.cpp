@@ -1,4 +1,4 @@
-﻿#include "Weather_Forecast.h"
+﻿#include "Weather_Forecast.h"  
 #include "Air_Forecast.h"
 #include "Natural_Phenomenon.h"
 #define N 7
@@ -60,15 +60,15 @@ void PrintWeatherForecast(Weather_Forecast** source)
 void KindOfPrecipitation(Weather_Forecast** source, const char* precipitation)
 {
 	cout << " ----------------------------" << endl;
-	if (strstr(precipitation, "rain"))
+	if (strstr(precipitation, "rain") != NULL)
 	{
 		cout << " " << "Number of days with rain: " << DaysWithRain(source) << endl;
 	}
-	if (strstr(precipitation, "snow"))
+	if (strstr(precipitation, "snow") != NULL)
 	{
 		cout << " " << "Number of days with snow: " << DaysWithSnow(source) << endl;
 	}
-	if (strstr(precipitation, "hail"))
+	if (strstr(precipitation, "hail") != NULL)
 	{
 		cout << " " << "Number of days with hail: " << DaysWithHail(source) << endl;
 	}

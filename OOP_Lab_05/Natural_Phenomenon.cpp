@@ -52,7 +52,7 @@ Natural_Phenomenon::Natural_Phenomenon(const char* place, const char* date,
 									   bool precipitation) : Weather_Forecast(place, date)
 {
 	cout << " *Constructor availability of Natural Phenomenon*" << endl;
-	if(this->Precipitation = precipitation)
+	if((this->Precipitation = precipitation)==true)
 	{
 		this->Rain = 1;
 		this->Snow = 1;
