@@ -1,4 +1,4 @@
-#pragma once
+#pragma once 
 
 #include <iostream>
 #include "List_Item.hpp"
@@ -22,13 +22,11 @@ public:
 	void Push_Back(T item);
 	T Peek_Front() const; 
 	T Peek_Back() const;
-	T Pop_Front();
-	T Pop_Back();
+	T Pop();
 	bool IsEmpty() const;
-	void Inverse();
+	void Reverse();
 	List_Item<T>* GetBegin();
 	List_Item<T>* GetEnd();
-
 
 	template<typename T> friend ostream& operator<< (ostream& out, const List<T>& list);
 };
@@ -120,7 +118,7 @@ template<typename T> T List<T>::Peek_Back() const
 	return get_item;
 }
 
-template<typename T> T List<T>::Pop_Front()
+template<typename T> T List<T>::Pop()
 {
 	if(this->Size == 0)
 	{
@@ -148,40 +146,12 @@ template<typename T> T List<T>::Pop_Front()
 	}
 }
 
-template<typename T> T List<T>::Pop_Back()
-{
-	if (this->Size == 0)
-	{
-		throw "This list does not contain items";
-	}
-
-	if (this->Size == 1)
-	{
-		List_Item <T>* item = this->Tail;
-		this->Head = nullptr;
-		this->Tail = nullptr;
-		T deleted_item = item->GetItem();
-		delete item;
-		this->Size -= 1;
-		return deleted_item;
-	}
-	else
-	{
-		List_Item <T>* item = this->Tail;
-		this->Tail = item->GetNext();
-		T deleted_item = item->GetItem();
-		delete item;
-		this->Size -= 1;
-		return deleted_item;
-	}
-}
-
 template<typename T> bool List<T>::IsEmpty() const
 {
-	return (this->Size() == 0);
+	return (this->Size == 0);
 }
 
-template<typename T> void List<T>::Inverse()
+template<typename T> void List<T>::Reverse()
 {
 	List_Item<T>* newNextItem = nullptr;
 	List_Item<T>* oldHead = this->Head;
@@ -191,43 +161,8 @@ template<typename T> void List<T>::Inverse()
 		newNextItem = this->Head;
 		this->Head = oldHead;
 		oldHead = oldHead->GetNext();
-		this->Head->SetNext(newNextItem);		
+		this->Head->SetNext(newNextItem);
 	}
-
-	/*for (int i = 1; i < this->Size; i++)
-	{		
-		this->Head = oldHead->GetNext();
-		newHead = this->Head->GetNext();
-	}*/
-
-	//List_Item<T>* newHead = this->Head;
-	////List_Item<T>* oldHead = this->Head;
-	//for (int i = 1; i < this->Size; i++)
-	//{		
-	//	this->Head = this->Head->GetNext();
-	//	newHead = this->Head->GetNext();
-	//}
-
-//	//List<T> NewList;
-//	List_Item<T>* NewPointer = this->Head;
-//	List_Item<T>* pointer;
-//	for(int i = 0; i < this->Size; i++)
-//	{
-//
-//		//NewList.Push_Front(NewPointer->GetItem());
-//		//NewPointer = NewPointer->GetNext();
-//		pointer = NewPointer->GetNext();
-//		NewPointer = 
-//	}
-//
-//	NewPointer = this->Head;
-//	pointer = NewList.GetBegin();
-//	for (int i = 0; i < this->Size; i++)
-//	{
-//		NewPointer->SetItem(pointer->GetItem());
-//		NewPointer = NewPointer->GetNext();
-//		pointer = pointer->GetNext();
-//	}
 }
 
 template<typename T> List_Item<T>* List<T>::GetBegin()

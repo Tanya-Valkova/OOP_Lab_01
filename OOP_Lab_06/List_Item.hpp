@@ -1,4 +1,4 @@
-#pragma once
+#pragma once 
 
 #include <iostream>
 
@@ -28,7 +28,7 @@ template<typename T> List_Item<T>::List_Item(T item, List_Item<T>* next)
 
 template<typename T> List_Item<T>::~List_Item()
 {
-	cout << " *List_Item Destructor" << endl;
+	cout << " *List_Item Destructor*" << endl;
 }
 
 template<typename T> const T List_Item<T>::GetItem() const
