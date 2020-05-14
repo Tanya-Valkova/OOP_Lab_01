@@ -1,4 +1,4 @@
-﻿#include "List.hpp" 
+﻿#include "List.hpp"
 #include "List_Item.hpp"
 
 int main()
@@ -43,5 +43,11 @@ int main()
 	{
 		cout << "\n Pop: " << d->Pop() << "\n" << endl;
 	}
+
+	delete a;
+	delete b;
+	delete c;
+	delete d;
+
 	return 0;
 }
