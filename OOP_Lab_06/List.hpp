@@ -183,13 +183,30 @@ template<typename T> bool List<T>::IsEmpty() const
 
 template<typename T> void List<T>::Inverse()
 {
-	List_Item<T>* newHead = this->Head;
+	List_Item<T>* newNextItem = nullptr;
 	List_Item<T>* oldHead = this->Head;
-	for (int i = 1; i < this->Size; i++)
+	this->Head = nullptr;
+	while (oldHead != nullptr)
 	{
+		newNextItem = this->Head;
+		this->Head = oldHead;
 		oldHead = oldHead->GetNext();
-		newHead = oldHead->GetNext();
+		this->Head->SetNext(newNextItem);		
 	}
+
+	/*for (int i = 1; i < this->Size; i++)
+	{		
+		this->Head = oldHead->GetNext();
+		newHead = this->Head->GetNext();
+	}*/
+
+	//List_Item<T>* newHead = this->Head;
+	////List_Item<T>* oldHead = this->Head;
+	//for (int i = 1; i < this->Size; i++)
+	//{		
+	//	this->Head = this->Head->GetNext();
+	//	newHead = this->Head->GetNext();
+	//}
 
 //	//List<T> NewList;
 //	List_Item<T>* NewPointer = this->Head;
